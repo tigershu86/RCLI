@@ -1,7 +1,6 @@
 use csv::Reader;
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 use std::fs;
-use anyhow;
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Player {
@@ -21,7 +20,7 @@ pub fn process_csv(input: &str, output: &str) -> anyhow::Result<()> {
     let mut reader = Reader::from_path(input)?;
     let mut ret = Vec::with_capacity(128);
     for result in reader.deserialize() {
-        let record:Player = result?;
+        let record: Player = result?;
         ret.push(record);
     }
 

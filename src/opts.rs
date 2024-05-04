@@ -3,7 +3,7 @@ use std::path::Path;
 use clap::Parser;
 
 #[derive(Debug, Parser)]
-#[command(name = "rcli", version, author, about, long_about = None)] 
+#[command(name = "rcli", version, author, about, long_about = None)]
 pub struct Opts {
     #[command(subcommand)]
     pub cmd: SubCommand,
